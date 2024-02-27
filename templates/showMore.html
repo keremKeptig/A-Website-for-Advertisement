@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>See Details</title>
+ <link rel="stylesheet" href="/static/seemore.css">
+</head>
+<body>
+
+
+<table border="1">
+
+
+
+{% for adv in  userAdvertisements %}
+  <tr>
+    <td>Title</td>
+    <td>{{ adv[0] }}</td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>{{ adv[1] }}</td>
+  </tr>
+  <tr>
+    <td>Category</td>
+    <td>{{ adv[2] }}</td>
+  </tr>
+  <tr>
+    <td>Contact Full Name</td>
+    <td>{{ adv[3] }}</td>
+  </tr>
+  <tr>
+    <td>Contact Email</td>
+    <td>{{ adv[4] }}</td>
+  </tr>
+  <tr>
+    <td>Contact Telephone Number</td>
+    <td>{{ adv[5] }}</td>
+  </tr>
+{% endfor %}
+
+</table>
+<h2>You can go <a href="/">home page</a></h2>
+</body>
+</html>

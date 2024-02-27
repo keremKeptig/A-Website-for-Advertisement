@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <script src="/static/validation.js"></script>
+    <script src="/static/ajax.js"></script>
+</head>
+<body>
+
+{% if 'username' in session %}
+
+ <div class="navbar">
+        <a href="/home">Home Page</a>
+        <a href="/showAdvertisementPage">My Advertisements</a>
+        <a href="/profile">My Profile</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+
+
+
+{% else %}
+
+<form name="loginform" onsubmit=" return checkUserValues()" action="/loginForm" method="post">
+
+    <div>
+        <h1>Sign In</h1>
+        <br>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="usernameInput">
+        <br>
+        <br>
+
+        <label for="psw">Password</label>
+        <input id="psw" type="password" name="passwordInput">
+
+    </div>
+
+    <div>
+        <input type="submit" value="Sign In ">
+    </div>
+
+
+     <a href="/register" class="create-account-link"> Create a new account  </a>
+
+        <div id="errormessage" style="display: none;"></div>
+
+</form>
+{% endif %}
+
+{% if error %}
+<h3 id="error">Check username and password!!</h3>
+{% endif %}
+
+
+
+
+
+    <form action="/search" method="post">
+            <h2>Search Area</h2>
+
+         <input type="text" placeholder="search by word" name="text" onkeyup="showHint(this.value)">
+
+
+
+           <select id="category" name="category" required>
+                <option value="">Select a Category</option>
+                {% for category in categories %}
+                    <option value="{{category}}">{{category}}</option>
+                {% endfor %}
+            </select>
+
+          <br>
+         <span id="hint" > </span>
+
+    <br>
+     <br>
+    <input type="submit" name="searchButton" value="Search ">
+    </form>
+
+
+
+<table border="1">
+
+    {% if searchResult == "empty" %}
+        <h1> "No advertisement"</h1>
+
+    {% elif searchResult %}
+    {% for category in categories %}
+        {% if searchResult[category] %}
+            <h2 id="categoryids">{{ category }}</h2>
+            <table border="1">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Contact Full Name</th>
+                    <th>See More</th>
+                </tr>
+                {% for adv in searchResult[category] %}
+                    <tr>
+                        <td>{{ adv[0] }}</td>
+                        <td>{{ adv[1] }}</td>
+                        <td>{{ adv[2] }}</td>
+                        <td><a href="/seeMoreDetails/{{ adv[3] }}">See More</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <br>
+        {% elif all_selected %}
+            {% if category != "All Categories" %}
+                <h2 id="categoryids2">{{ category }}</h2>
+            <table border="1">
+            <tr> <th>No advertisement</th> </tr>
+            </table>
+            <br>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+</table>
+
+
+
+</body>
+</html>

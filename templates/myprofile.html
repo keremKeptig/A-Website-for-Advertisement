@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/myprofile.css">
+</head>
+<body>
+{% if edit %}
+
+<form method="POST" action="/save_changes">
+  <p>Fullname: <input type="text" name="fullname" value="{{ user_data[1] }}"/></p>
+  <p>Email: <input type="email" name="email" value="{{ user_data[2] }}"/></p>
+  <p>Password: <input type="text" name="password" value="{{ user_data[3] }}" /> </p>
+  <p>Telephone Number: <input type="text" name="telno" value="{{ user_data[4] }}"/> </p>
+  <p><input type="submit" value="Save Changes"></p>
+</form>
+<p><a href="/profile">Cancel changes</a></p>
+{% else %}
+
+<h1 class="section">My Profile</h1>
+
+  <p>Username: {{ user_data[0] }}</p>
+  <p>Fullname: {{ user_data[1] }}</p>
+  <p>Email: {{ user_data[2] }}</p>
+  <p >Password:  {{ user_data[3] }}</p>
+  <p>Telephone Number: {{ user_data[4] }}</p>
+
+<a href="{{ url_for('edit_profile') }}"><button>Edit</button></a>
+
+{% endif %}
+
+        <h3>Click <a href="/">here</a> to access the main page </a></h3>
+
+
+</body>
+</html>

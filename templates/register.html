@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="/static/register.css">
+    <script src="/static/validation.js"></script>
+
+
+
+</head>
+<body>
+
+<form name="registerForm" onsubmit="return checkUserRegister()" action="/checkRegister" method="post">
+
+<H1>Sign Up</H1>
+  <dv>
+    <input name = "register_username" type="text" placeholder="Username">
+    <br>
+    <input name = "register_password" type="password" placeholder="Password">
+  </dv>
+  <br>
+  <input name="register_fullname" type="text" placeholder="Full Name">
+  <br>
+  <input name="register_email" type="email" placeholder="Email address">
+    <br>
+  <input name="register_telephone" type="tel" placeholder="Telephone Number" >
+    <br>
+    <br>
+  <input type="submit" value="Register">
+
+  <div >
+        <p id="errormessage" style="display: none" > </p>
+  </div>
+
+    {% if registerIsSuccess == "false" %}
+        <h1>There is user with this username ! Please use another username.</h1>
+    {% elif registerIsSuccess == "true" %}
+     <h1> Register is successful!</h1>
+
+    {%endif%}
+ <h3>Click <a href="/">here</a> to access the main page </a></h3>
+
+</form>
+</body>
+</html>

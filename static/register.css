@@ -1,0 +1,33 @@
+body {
+    background-color: darkseagreen;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+form {
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    padding: 30px;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    padding: 6px 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] ,
+input[type="tel"]{
+    width: 20%;
+    padding: 6px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}

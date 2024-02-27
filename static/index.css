@@ -1,0 +1,85 @@
+body {
+    background-color: darkseagreen;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: black; /* Set the navbar background color to black */
+    height: 60px;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    padding: 14px 16px;
+    display: inline-block;
+}
+
+
+
+form {
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    padding: 30px;
+}
+
+input[type="submit"],
+input[type="button"],
+button {
+    padding: 6px 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+     margin-bottom: 10px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 20%;
+    padding: 6px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+h3.error{
+   background-color: red;
+}
+
+#categoryids {
+    color: red;
+}
+#categoryids2 {
+    color: red;
+}
+
+
+
+select {
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}

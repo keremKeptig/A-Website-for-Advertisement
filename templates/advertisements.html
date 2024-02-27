@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advertiesement Page</title>
+    <link rel="stylesheet" href="/static/advertisement.css">
+    <script src="/static/validation.js"></script>
+
+
+
+
+</head>
+<body>
+<form name="advertisementForm" onsubmit="return checkValues()" action="/addAdvertisement" method="post">
+  <h1> Add a advertiesement</h1>
+  <br>
+  <br>
+
+  <div>
+    <input type="text" name="title" Title placeholder="Title">
+  </div>
+
+  <br>
+  <div>
+    <input type="text" name="description" Description placeholder="Description">
+  </div>
+  <br>
+
+    <div>
+       <select id="category" name="category" required>
+            <option value="">Select a Category</option>
+            {% for category in categories %}
+                <option value="{{category}}">{{category}}</option>
+            {% endfor %}
+        </select>
+   </div>
+
+  <br>
+  <button type="submit">Create Advertisement</button>
+    <div id="errormessage" style="display: none;"></div>
+    <br>
+
+
+{% if userAdvertisements  %}
+      <table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Activate/Deactivate</th>
+    </tr>
+
+    {% for ad in userAdvertisements %}
+        <tr>
+            <td>{{ ad[0] }}</td>
+            <td>{{ ad[1] }}</td>
+            <td>{{ ad[5] }}</td>
+
+            {% if  ad[4]  == 1 %}
+                <td> <a href="/changeActivateStatus/{{ ad[3] }}/{{ad[4]}}">Activate</a> </td>
+            {% else %}
+                <td> <a href="/changeActivateStatus/{{ ad[3]}}/{{ad[4]}}">Deactivate</a> </td>
+            {%endif%}
+
+        </tr>
+    {% endfor %}
+</table>
+
+
+{%endif%}
+
+</form>
+
+<h2>You can go <a href="/">home page</a></h2>
+</body>
+</html>
